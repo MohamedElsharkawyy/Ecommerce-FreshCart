@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$rating-color: #ffc908;
+$main-transition: .8s;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+$main-font-family:'Encode Sans Expanded', sans-serif;
+
+body{
+  font-family: $main-font-family;
+}
+a,span{
+  display: inline-block;
+}
+ul{
+  list-style: none;
+}
+a{
+  color: inherit;
+}
+.text-main{
+  color:$main-color;
+}
+.bg-main{
+  background-color: $main-color;
+}
+.bg-main-light{
+  background-color: $light-color;
+}
+.text-main-light{
+  color: $light-color ;
+}
+.rating-color{
+  color: $rating-color;
+}
+.font-sm{
+  font-size: 11px;
+}
+.main-btn{
+  background-color: $main-color;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 4px 8px;
+  border: unset;
+  transition: $main-transition;
+  &:disabled{
+    background-color: #0aad0a70;
+    color: #ffffff84;
+    cursor: not-allowed;
+  }
+  &:hover{
+    background-color: #0ae40a;
+  }
+}
+.card{
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  padding: 4px;
+  box-shadow: $shadow;
+  transition: $main-transition;
+  position: relative;
+  overflow: hidden;
+  .heart{
+    font-size: 35px;
+    position: absolute;
+    top: 5px;
+    right: -40px;
+    z-index: 4;
+    cursor: pointer;
+    transition: right .6s;
+    &:hover{
+      color: red;
+    }
+  }
+  .main-btn{
+    transform: translateY(200%);
+    transition:transform .5s;
+  }
+  &:hover{
+    box-shadow: 2px 2px 5px  rgba(0, 128, 0, 0.703);
+    .main-btn{
+      transform: translateY(0%);
+    }
+    .heart{
+      right: 5px;
+    }
+  }
+}
+.active-link{
+  color: #fff !important;
+  background-color: $main-color !important;
+  border-radius: 5px;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: $main-color;
+}
+::-webkit-scrollbar-track{
+  background-color: $light-color;
+}

@@ -1,0 +1,31 @@
+<section class="pb-5 pt-3" *ngIf="wishlist.length > 0;else message">
+  <input type="text" class="form-control w-50 mx-auto my-4 form-control-sm" placeholder="Search..." [(ngModel)]="term">
+  <div class="row g-4">
+    <div *ngFor="let product of wishlist |search:term" class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+      <div *ngIf="productId.includes($any(product._id))" class="card h-100">
+        <i class="fa-regular fa-heart heart" title="add to wishlist" (click)="removeProductFromWishlist(product._id)"></i>
+        <i class="fa-solid fa-heart heart" (click)="removeProductFromWishlist(product._id)" title="remove from wishlist"></i>
+        <header role="button" [routerLink]="['/productdetails',product._id]">
+          <img [src]="product.imageCover" [title]="product.title" [alt]="product.title" class="w-100">
+          <h3 class="small">{{product.title | cuttexts : 3}}</h3>
+          <h4 class="h6 text-main">{{product.category.name}}</h4>
+          <div class="d-flex justify-content-between align-items-center small">
+            <span>{{product.price  | currency:'EGP'}}</span>
+            <span class="small">
+              <i [class.rating-color]="product.ratingsAverage >= num" *ngFor="let num of [1,2,3,4,5]" class="fas fa-star"></i>
+              {{product.ratingsAverage}}
+            </span>
+          </div>
+        </header>
+        <footer class="text-center mt-2">
+          <button class="main-btn w-100" (click)="addProductToCart(product._id, btnAdd)" #btnAdd>
+            +Add To Cart
+          </button>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #message>
+  <h2 class="text-center mt-4">Your Wishlist is Empty...</h2>
+</ng-template>

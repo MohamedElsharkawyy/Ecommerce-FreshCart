@@ -1,0 +1,13 @@
+.card{
+  overflow: hidden;
+  .main-btn{
+    transform: translateY(200%);
+    transition:transform .5s;
+  }
+  &:hover{
+    box-shadow: 2px 2px 5px  rgba(0, 128, 0, 0.703);
+    .main-btn{
+      transform: translateY(0%);
+    }
+  }
+}
