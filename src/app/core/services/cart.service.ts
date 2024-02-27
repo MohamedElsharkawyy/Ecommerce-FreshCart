@@ -33,7 +33,7 @@ export class CartService {
     return this._HttpClient.delete(this.baseUrl+"cart");
   }
   checkOut(id:string|null,orderForm:object):Observable<any>{
-    return this._HttpClient.post(this.baseUrl +`orders/checkout-session/${id}?url=https://ecommerce-fresh-cart-two.vercel.app/#/home`,{
+    return this._HttpClient.post(this.baseUrl +`orders/checkout-session/${id}?url=https://ecommerce-fresh-cart-two.vercel.app`,{
       shippingAddress:orderForm,
     });
   }
